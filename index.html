@@ -114,14 +114,53 @@
         displayWorld();
       }
 
+      function redGhostMov(){
+        var prevDir = 3;
+
+        setInterval(function() {
+          var redGhostDir = Math.floor(Math.random()*4);
+
+          if(redGhostDir == 0 && world[redGhost.y - 1][redGhost.x] != 2){
+            redGhost.y--;
+            prevDir = redGhostDir;
+          } else if(redGhostDir == 1 && world[redGhost.y + 1][redGhost.x] != 2){
+            redGhost.y++;
+            prevDir = redGhostDir;
+          } else if(redGhostDir == 2 && world[redGhost.y][redGhost.x - 1] != 2){
+            redGhost.x--;
+            prevDir = redGhostDir;
+          } else if(redGhostDir == 3 && world[redGhost.y][redGhost.x + 1] != 2){
+            redGhost.x++;
+            prevDir = redGhostDir;
+          } else {
+              if(prevDir == 0 && world[redGhost.y - 1][redGhost.x] != 2){
+                redGhost.y--;
+              } else if(prevDir == 1 && world[redGhost.y + 1][redGhost.x] != 2){
+                redGhost.y++;
+              } else if(prevDir == 2 && world[redGhost.y][redGhost.x - 1] != 2){
+                redGhost.x--;
+              } else if(prevDir == 3 && world[redGhost.y][redGhost.x + 1] != 2){
+                redGhost.x++;
+              }
+          }
+
+          displayRedGhost();
+        }, 200)
+      }
+
     //------- Actions -------
     displayWorld();
     displayPacman();
     displayRedGhost();
     displayScore();
 
+    //---Ghost Movement---
+    redGhostMov();
+
+
+
+    //---Pacman Movement---
     document.onkeydown = function(e){
-      //---Movement---
       if (e.keyCode == 37 && world[pacman.y][pacman.x - 1] != 2) {
         pacman.x--;
         pacman.position = "Left";
