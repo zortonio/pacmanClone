@@ -1,0 +1,66 @@
+/*CSS RESET*/
+*{
+  padding: 0;
+  margin: 0 auto;
+}
+body{
+  background-color: black;
+}
+.row{
+  height: 20px;
+}
+.row div{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.brick{
+  background-color: blue;
+}
+.coin{
+  background: url(images/coin.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.empty, .forbidden{
+
+}
+.cherries{
+  background: url(images/cherries.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#pacman{
+  width: 20px;
+  height: 20px;
+  /*background: url(images/pacman.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;*/
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#redGhost{
+  width: 20px;
+  height: 20px;
+  background: url(images/redGhost.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#score{
+  height: 20px;
+  width: 30px;
+  border: 1px solid white;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  left: 560px;
+}
